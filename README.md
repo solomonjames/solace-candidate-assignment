@@ -1,8 +1,8 @@
-## Solace Candidate Assignment
+# Solace Candidate Assignment
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Setup
 
 Install dependencies
 
@@ -16,7 +16,7 @@ Run the development server:
 npm run dev
 ```
 
-## Database set up
+### Database
 
 The app is configured to return a default list of advocates. This will allow you to get the app up and running without needing to configure a database. If you’d like to configure a database, you’re encouraged to do so. You can uncomment the url in `.env` and the line in `src/app/api/advocates/route.ts` to test retrieving advocates from the database.
 
@@ -39,3 +39,16 @@ npm run migrate
 ```bash
 npm run seed
 ```
+
+## Development
+
+### Migrations
+
+Ensure that you generate and commit the generated sql migration files during development.
+
+With Drizzle this should be really straight forward, and done in a couple small steps.
+
+1. `npm run generate`
+2. `npm run migrate`
+
+Generate will create the new sql migrations, and migrate will apply them!
