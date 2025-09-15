@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "drizzle-kit generate",
-    "migrate": "drizzle-kit migrate",
-    "seed": "tsx --env-file=.env.development ./src/db/seed/index.ts"
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx --env-file=.env.development ./src/db/seed/index.ts",
+    "db:reset": "tsx --env-file=.env.development ./src/db/reset.ts"
   },
   "dependencies": {
     "@next/env": "^15.5.3",
