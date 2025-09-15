@@ -1,5 +1,5 @@
 import db from "../index";
-import { advocates } from "../schema";
+import { advocates } from "../schema/advocates";
 import { advocateData } from "./advocates";
 
 async function seed() {
