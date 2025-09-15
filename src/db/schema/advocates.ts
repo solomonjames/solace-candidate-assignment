@@ -7,7 +7,7 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 
-const advocates = pgTable("advocates", {
+export const advocates = pgTable("advocates", {
   id: serial("id").primaryKey(),
   firstName: varchar("first_name").notNull(),
   lastName: varchar("last_name").notNull(),
@@ -18,5 +18,3 @@ const advocates = pgTable("advocates", {
   phoneNumber: varchar("phone_number").notNull(),
   createdAt: timestamp("created_at").defaultNow()
 });
-
-export { advocates };
