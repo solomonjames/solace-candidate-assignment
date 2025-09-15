@@ -42,6 +42,11 @@ npm run seed
 
 ## Development
 
+### Seeding
+
+When adding new database schemas to the project, we should make sure a related seeder is also created, unless
+it is somehow not applicable to that data.
+
 ### Migrations
 
 Ensure that you generate and commit the generated sql migration files during development.
