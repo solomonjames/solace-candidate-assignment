@@ -31,16 +31,23 @@ docker compose up -d
 3. Push migration to the database
 
 ```bash
-npm run migrate
+npm run db:migrate
 ```
 
 4. Seed the database
 
 ```bash
-npm run seed
+npm run db:seed
 ```
 
 ## Development
+
+### Seeding
+
+When adding new database schemas to the project, we should make sure a related seeder is also created, unless
+it is somehow not applicable to that data.
+
+> You can also reset the database, and truncate tables using `npm run db:reset`
 
 ### Migrations
 
@@ -48,7 +55,7 @@ Ensure that you generate and commit the generated sql migration files during dev
 
 With Drizzle this should be really straight forward, and done in a couple small steps.
 
-1. `npm run generate`
-2. `npm run migrate`
+1. `npm run db:generate`
+2. `npm run db:migrate`
 
 Generate will create the new sql migrations, and migrate will apply them!

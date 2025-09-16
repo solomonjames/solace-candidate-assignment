@@ -1,6 +1,5 @@
-import db from "../index";
-import { advocates } from "../schema/advocates";
-import { advocateData } from "./advocates";
+import db from "@/db";
+import { advocatesSeeder } from "@/db/seed/advocates";
 
 async function seed() {
   if (!process.env.DATABASE_URL) {
@@ -9,7 +8,7 @@ async function seed() {
   }
 
   try {
-    await db.insert(advocates).values(advocateData);
+    await advocatesSeeder(db, 50);
     console.log("Seeded advocates successfully");
 
     process.exit(0);
