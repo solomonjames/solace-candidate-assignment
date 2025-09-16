@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { type AdvocateEntity } from '@/db/schema';
+import { advocateApi } from '@/lib/api';
 
 export default function Home() {
   const [advocates, setAdvocates] = useState<AdvocateEntity[]>([]);
@@ -10,11 +11,9 @@ export default function Home() {
 
   useEffect(() => {
     console.log("fetching advocates...");
-    fetch("/api/advocates").then((response) => {
-      response.json().then((jsonResponse) => {
-        setAdvocates(jsonResponse.data);
-        setFilteredAdvocates(jsonResponse.data);
-      });
+    advocateApi.fetchAll().then((data) => {
+        setAdvocates(data.data);
+        setFilteredAdvocates(data.data);
     });
   }, []);
 
@@ -24,7 +23,7 @@ export default function Home() {
     setSearchTerm(value);
 
     console.log("filtering advocates...");
-    const filteredAdvocates = advocates.filter((advocate) => {
+    const filtered = advocates.filter((advocate) => {
       return (
         advocate.firstName.includes(searchTerm) ||
         advocate.lastName.includes(searchTerm) ||
@@ -35,7 +34,7 @@ export default function Home() {
       );
     });
 
-    setFilteredAdvocates(filteredAdvocates);
+    setFilteredAdvocates(filtered);
   };
 
   const onClick = () => {
