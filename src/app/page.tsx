@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { type AdvocateEntity } from '@/db/schema';
 import { advocateApi } from '@/lib/api';
 
@@ -17,7 +17,7 @@ export default function Home() {
     });
   }, []);
 
-  const onChange = (e) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     setSearchTerm(value);
@@ -78,8 +78,8 @@ export default function Home() {
                 <td>{advocate.city}</td>
                 <td>{advocate.degree}</td>
                 <td>
-                  {advocate.specialties.map((s) => (
-                    <div key={s}>{s}</div>
+                  {advocate.specialties.map((s, i) => (
+                    <div key={`index-${i}-${s}`}>{s}</div>
                   ))}
                 </td>
                 <td>{advocate.yearsOfExperience}</td>
