@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 import { ReactNode } from 'react';
-
-const inter = Inter({ subsets: ["latin"] });
+import { Provider } from '@/components/ui/provider';
+import { ColorModeButton } from '@/components/ui/color-mode';
+import { Box, Container, Flex } from '@chakra-ui/react';
 
 export const metadata: Metadata = {
   title: "Solace Candidate Assignment",
@@ -16,8 +15,19 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <Provider>
+          <Box>
+            <Flex justify="flex-end" p="4">
+              <ColorModeButton />
+            </Flex>
+            <Container>
+              {children}
+            </Container>
+          </Box>
+        </Provider>
+      </body>
     </html>
   );
 }
