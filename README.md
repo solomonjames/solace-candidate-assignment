@@ -59,3 +59,13 @@ With Drizzle this should be really straight forward, and done in a couple small 
 2. `npm run db:migrate`
 
 Generate will create the new sql migrations, and migrate will apply them!
+
+### New Schema Checklist
+
+Creating a new schema for the database? Here is a little checklist as a reminder of what is expected with
+each new schema.
+
+1. Create new schema file with export types and table
+2. Create seeder, if applicable
+3. Generate migration
+4. Create new repository class
