@@ -1,6 +1,6 @@
 import { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { seed } from 'drizzle-seed';
-import { advocates } from '@/db/schema/advocates';
+import { advocatesTable } from '@/db/schema/advocates';
 
 const specialties = [
   "Bipolar",
@@ -34,7 +34,7 @@ const specialties = [
 const degrees = ["MD", "PhD", "MSW", "MD"];
 
 export function advocatesSeeder(db: PostgresJsDatabase, count: number = 100) {
-  return seed(db, { advocates }, { count })
+  return seed(db, { advocates: advocatesTable }, { count })
     .refine((funcs) => ({
       advocates: {
         columns: {

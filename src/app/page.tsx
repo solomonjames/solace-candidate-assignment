@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { type AdvocateEntity } from '@/db/schema';
 
 export default function Home() {
-  const [advocates, setAdvocates] = useState([]);
-  const [filteredAdvocates, setFilteredAdvocates] = useState([]);
+  const [advocates, setAdvocates] = useState<AdvocateEntity[]>([]);
+  const [filteredAdvocates, setFilteredAdvocates] = useState<AdvocateEntity[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
