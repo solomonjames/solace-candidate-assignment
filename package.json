@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx --env-file=.env.development ./src/db/seed/index.ts",
@@ -15,21 +15,23 @@
   "dependencies": {
     "@next/env": "^15.5.3",
     "drizzle-orm": "^0.39.3",
-    "next": "^14.2.19",
-    "postgres": "^3.4.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "next": "^15.5.3",
+    "postgres": "^3.4.7",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^20.14.12",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
     "drizzle-kit": "^0.23.0",
     "drizzle-seed": "^0.3.1",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.5",
+    "eslint": "^9.35.0",
+    "eslint-config-next": "^15.5.3",
     "postcss": "^8.4.40",
-    "tailwindcss": "^3.4.7",
+    "tailwindcss": "^4.1.13",
     "tsx": "^4.20.5",
     "typescript": "^5.5.4"
   }
