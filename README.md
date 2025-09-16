@@ -69,3 +69,12 @@ each new schema.
 2. Create seeder, if applicable
 3. Generate migration
 4. Create new repository class
+
+### API Endpoints
+
+When creating a new endpoint for the client to consume, here are some reminders for what is expected for this new
+endpoint.
+
+1. The endpoint itself should NEVER use the database directly, but some abstraction. Either a repository or service class.
+2. Update/Create a wrapper for this endpoint in the API SDK at `lib/api` namespace. These should be logically grouped
+by resource or purpose.
