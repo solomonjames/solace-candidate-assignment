@@ -1,8 +1,9 @@
 import db from "@/db";
-import { advocates } from "@/db/schema/advocates";
+import { AdvocateRepository } from '@/lib/repositories';
 
 export async function GET() {
-  const data = await db.select().from(advocates);
+  const advocateRepository = new AdvocateRepository(db);
+  const data = await advocateRepository.findAll();
 
   return Response.json({ data });
 }

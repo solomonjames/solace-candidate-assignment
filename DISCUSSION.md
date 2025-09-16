@@ -8,3 +8,4 @@ Linking the PRs in the order they were created and merged here for easy finding:
 1. [[bugs]: Addressing initial bugs and issues](https://github.com/solomonjames/solace-candidate-assignment/pull/1)
 2. [[migrations]: Adding migrations and using drizzle to run them](https://github.com/solomonjames/solace-candidate-assignment/pull/2)
 3. [[seeding]: Utilize drizzle seed and upgrade drizzle](https://github.com/solomonjames/solace-candidate-assignment/pull/3)
+4. [[database]: Start using Repositories instead of direct queries](https://github.com/solomonjames/solace-candidate-assignment/pull/4)

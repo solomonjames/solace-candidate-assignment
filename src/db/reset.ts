@@ -1,6 +1,6 @@
 import db from '@/db';
 import { reset } from "drizzle-seed";
-import { advocates } from '@/db/schema/advocates';
+import { advocatesTable } from '@/db/schema';
 
 async function main() {
   if (process.env.NODE_ENV === 'production') {
@@ -8,7 +8,7 @@ async function main() {
     process.exit(1);
   }
 
-  await reset(db, { advocates });
+  await reset(db, { advocates: advocatesTable });
 }
 
 main().then(() => {
