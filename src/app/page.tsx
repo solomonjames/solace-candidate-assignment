@@ -1,8 +1,12 @@
 "use client";
 
 import { ChangeEvent, useEffect, useState } from "react";
+import { Container } from "@chakra-ui/react";
 import { type AdvocateEntity } from '@/db/schema';
 import { advocateApi } from '@/lib/api';
+import Header from '@/components/home/Header';
+import SearchBar from '@/components/home/SearchBar';
+import AdvocatesTable from '@/components/home/AdvocatesTable';
 
 export default function Home() {
   const [advocates, setAdvocates] = useState<AdvocateEntity[]>([]);
@@ -43,52 +47,10 @@ export default function Home() {
   };
 
   return (
-    <main style={{ margin: "24px" }}>
-      <h1>Solace Advocates</h1>
-      <br />
-      <br />
-      <div>
-        <p>Search</p>
-        <p>
-          Searching for: <span>{searchTerm}</span>
-        </p>
-        <input style={{ border: "1px solid black" }} value={searchTerm} onChange={onChange} />
-        <button onClick={onClick}>Reset Search</button>
-      </div>
-      <br />
-      <br />
-      <table>
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>City</th>
-            <th>Degree</th>
-            <th>Specialties</th>
-            <th>Years of Experience</th>
-            <th>Phone Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredAdvocates.map((advocate) => {
-            return (
-              <tr key={advocate.id}>
-                <td>{advocate.firstName}</td>
-                <td>{advocate.lastName}</td>
-                <td>{advocate.city}</td>
-                <td>{advocate.degree}</td>
-                <td>
-                  {advocate.specialties.map((s, i) => (
-                    <div key={`index-${i}-${s}`}>{s}</div>
-                  ))}
-                </td>
-                <td>{advocate.yearsOfExperience}</td>
-                <td>{advocate.phoneNumber}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </main>
+    <Container maxW="6xl" py="6">
+      <Header />
+      <SearchBar searchTerm={searchTerm} onChange={onChange} onClick={onClick} />
+      <AdvocatesTable advocates={filteredAdvocates} />
+    </Container>
   );
 }
