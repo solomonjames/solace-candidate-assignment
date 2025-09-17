@@ -12,12 +12,9 @@ jobs:
       - uses: ./.github/actions/setup
       - run: npm run lint
 
-  build:
+  type-check:
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: 'test'
-      API_URL: 'test'
     steps:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
-      - run: npm run build
+      - run: npm run type-check
