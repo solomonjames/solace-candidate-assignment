@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { ChangeEvent, KeyboardEvent } from "react";
-import { Input, Button, Box, Field, Group, CloseButton, InputGroup } from "@chakra-ui/react";
+import { ChangeEvent, KeyboardEvent } from 'react';
+import { Input, Button, Box, Field, Group, CloseButton, InputGroup } from '@chakra-ui/react';
 
 interface SearchBarProps {
   searchTerm: string;

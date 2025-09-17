@@ -1,4 +1,4 @@
-import db from "@/db";
+import db from '@/db';
 import { AdvocateRepository } from '@/lib/repositories';
 import { NextRequest } from 'next/server';
 

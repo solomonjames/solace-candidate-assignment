@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
 import {
   Pagination,
   ButtonGroup,
   IconButton
-} from "@chakra-ui/react";
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
+} from '@chakra-ui/react';
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
 
 interface PaginationProps {
   currentPage: number;
@@ -42,7 +42,7 @@ export default function Paginator(props: PaginationProps) {
         <Pagination.Items
           render={(page) => (
             <IconButton
-              variant={{ base: "outline", _selected: "solid" }}
+              variant={{ base: 'outline', _selected: 'solid' }}
               key={page.value}
             >
               {page.value}
