@@ -8,7 +8,7 @@ import Header from '@/components/home/Header';
 import SearchBar from '@/components/home/SearchBar';
 import AdvocatesTable from '@/components/home/AdvocatesTable';
 import PageSizeSelector from '@/components/pagination/PageSizeSelector';
-import Paginator from '@/components/pagination/Paginator';
+// import Paginator from '@/components/pagination/Paginator';
 
 export default function Home() {
   const pageSizeOptions = [10, 20, 50];
