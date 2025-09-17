@@ -1,9 +1,9 @@
 "use client";
 
 import { type AdvocateEntity } from '@/db/schema';
-import { Table, Skeleton } from "@chakra-ui/react";
+import { Table, SkeletonText } from "@chakra-ui/react";
 
-import AdvocateRow from './AdvocateRow';
+import AdvocateRow from '@/components/home/AdvocateRow';
 
 interface AdvocatesTableProps {
   advocates: AdvocateEntity[];
@@ -28,13 +28,13 @@ export default function AdvocatesTable({ advocates, isLoading }: AdvocatesTableP
         {isLoading && (
           Array.from({ length: 10 }).map((_, index) => (
               <Table.Row key={index}>
-                <Table.Cell><Skeleton height="20px" /></Table.Cell>
-                <Table.Cell><Skeleton height="20px" /></Table.Cell>
-                <Table.Cell><Skeleton height="20px" /></Table.Cell>
-                <Table.Cell><Skeleton height="20px" /></Table.Cell>
-                <Table.Cell><Skeleton height="20px" /></Table.Cell>
-                <Table.Cell><Skeleton height="20px" /></Table.Cell>
-                <Table.Cell><Skeleton height="20px" /></Table.Cell>
+                <Table.Cell><SkeletonText noOfLines={1} /></Table.Cell>
+                <Table.Cell><SkeletonText noOfLines={1} /></Table.Cell>
+                <Table.Cell><SkeletonText noOfLines={1} /></Table.Cell>
+                <Table.Cell><SkeletonText noOfLines={1} /></Table.Cell>
+                <Table.Cell><SkeletonText noOfLines={2} /></Table.Cell>
+                <Table.Cell><SkeletonText noOfLines={1} /></Table.Cell>
+                <Table.Cell><SkeletonText noOfLines={1} /></Table.Cell>
               </Table.Row>
             ))
         )}
