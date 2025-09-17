@@ -1,6 +1,14 @@
 # Solace Candidate Assignment
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Tech Stack
+
+- **Frontend**: Next.js 15 with React 19
+- **UI Library**: Chakra UI v3 with dark/light mode support
+- **Language**: TypeScript with strict mode
+- **Database**: PostgreSQL with Drizzle ORM
+- **Styling**: Chakra UI components and theme system
+- **Search**: Full-text search with PostgreSQL search vectors
+- **Development**: ESLint, GitHub Actions CI/CD
 
 ## Setup
 
@@ -10,6 +18,14 @@ Install dependencies
 npm i
 ```
 
+### Environment Setup
+
+The project uses two environment files:
+- `.env` - General environment variables and database configuration
+- `.env.development` - Development-specific overrides used by database scripts
+
+If you want to customize things locally, you can utilize `.env.local` or `.env.development.local`
+
 Run the development server:
 
 ```bash
@@ -18,26 +34,70 @@ npm run dev
 
 ### Database
 
-The app is configured to return a default list of advocates. This will allow you to get the app up and running without needing to configure a database. If you’d like to configure a database, you’re encouraged to do so. You can uncomment the url in `.env` and the line in `src/app/api/advocates/route.ts` to test retrieving advocates from the database.
+1. Start docker compose
 
-1. Feel free to use whatever configuration of postgres you like. The project is set up to use docker-compose.yml to set up postgres. The url is in .env.
+This should setup your database with credentials defined in the docker-compose.yml file.
 
 ```bash
 docker compose up -d
 ```
 
-2. Create a `solaceassignment` database.
-
-3. Push migration to the database
+2. Push migration to the database
 
 ```bash
 npm run db:migrate
 ```
 
-4. Seed the database
+3. Seed the database
 
 ```bash
 npm run db:seed
+```
+
+## Available Commands
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
+- `npm run db:generate` - Generate database migrations
+- `npm run db:migrate` - Apply database migrations
+- `npm run db:seed` - Seed database with sample data
+- `npm run db:reset` - Reset and truncate database tables
+
+## Project Structure
+
+```
+src/
+├── app/               # Next.js App Router
+│   ├── api/           # API routes
+│   └── page.tsx       # Home page
+├── components/        # React components
+│   ├── home/          # Home page components
+│   ├── pagination/    # Pagination components
+│   └── ui/            # Chakra UI setup
+├── db/                # Database layer
+│   ├── schema/        # Drizzle schema definitions
+│   └── seed/          # Database seeders
+└── lib/               # Utilities and services
+    ├── api/           # API client SDK
+    └── repositories/  # Data access layer
+```
+
+## Code Quality
+
+This project uses several tools to maintain code quality:
+
+- **ESLint**: Configured with Next.js rules for code linting
+- **TypeScript**: Strict mode enabled for type safety
+- **GitHub Actions**: Automated CI/CD workflow for code quality checks
+- **Pull Request Template**: Structured PR reviews
+
+Run quality checks:
+```bash
+npm run lint        # Check for linting issues
+npm run type-check  # Verify TypeScript types
 ```
 
 ## Development
