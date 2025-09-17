@@ -1,15 +1,16 @@
 "use client";
 
 import { type AdvocateEntity } from '@/db/schema';
-import { Table } from "@chakra-ui/react";
+import { Table, Skeleton } from "@chakra-ui/react";
 
 import AdvocateRow from './AdvocateRow';
 
 interface AdvocatesTableProps {
   advocates: AdvocateEntity[];
+  isLoading?: boolean;
 }
 
-export default function AdvocatesTable({ advocates }: AdvocatesTableProps) {
+export default function AdvocatesTable({ advocates, isLoading }: AdvocatesTableProps) {
   return (
     <Table.Root size="sm" variant="outline" stickyHeader striped>
       <Table.Header>
@@ -24,7 +25,20 @@ export default function AdvocatesTable({ advocates }: AdvocatesTableProps) {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {advocates.map((advocate) => (
+        {isLoading && (
+          Array.from({ length: 10 }).map((_, index) => (
+              <Table.Row key={index}>
+                <Table.Cell><Skeleton height="20px" /></Table.Cell>
+                <Table.Cell><Skeleton height="20px" /></Table.Cell>
+                <Table.Cell><Skeleton height="20px" /></Table.Cell>
+                <Table.Cell><Skeleton height="20px" /></Table.Cell>
+                <Table.Cell><Skeleton height="20px" /></Table.Cell>
+                <Table.Cell><Skeleton height="20px" /></Table.Cell>
+                <Table.Cell><Skeleton height="20px" /></Table.Cell>
+              </Table.Row>
+            ))
+        )}
+        {!isLoading && advocates.map((advocate) => (
           <AdvocateRow key={advocate.id} advocate={advocate} />
         ))}
       </Table.Body>

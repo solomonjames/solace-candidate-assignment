@@ -11,3 +11,4 @@ Linking the PRs in the order they were created and merged here for easy finding:
 4. [[database]: Start using Repositories instead of direct queries](https://github.com/solomonjames/solace-candidate-assignment/pull/4)
 5. [[api]: Creating API SDK for the client to use when talking to backend](https://github.com/solomonjames/solace-candidate-assignment/pull/5)
 6. [[deps]: Updating/Upgrading dependencies](https://github.com/solomonjames/solace-candidate-assignment/pull/6)
+7. [[ui]: Breaking things out, and switching to Chakra UI](https://github.com/solomonjames/solace-candidate-assignment/pull/7)
