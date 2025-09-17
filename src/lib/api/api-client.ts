@@ -7,6 +7,11 @@ export interface ApiResponse<T> {
   data: T;
 }
 
+export interface ApiPaginatedResponse<T> {
+  data: T[];
+  totalCount: number;
+}
+
 export class ApiClient {
   private readonly baseUrl: string;
   private readonly headers: Record<string, string>;
@@ -16,13 +21,13 @@ export class ApiClient {
     this.headers = config.headers || {};
   }
 
-  async get<T>(endpoint: string, options: RequestInit = {}): Promise<ApiResponse<T>> {
+  async get<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const response = await this.fetch(endpoint, {
       method: 'GET',
       ...options,
     });
 
-    return (await response.json()) as ApiResponse<T>;
+    return (await response.json()) as T;
   }
 
   private async fetch(endpoint: string, options: RequestInit = {}): Promise<Response> {
