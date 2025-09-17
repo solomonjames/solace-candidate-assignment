@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
 import { type AdvocateEntity } from '@/db/schema';
-import { Table } from "@chakra-ui/react";
+import { Table } from '@chakra-ui/react';
 
 interface AdvocateRowProps {
   advocate: AdvocateEntity;

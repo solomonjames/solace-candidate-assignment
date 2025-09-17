@@ -13,3 +13,4 @@ Linking the PRs in the order they were created and merged here for easy finding:
 6. [[deps]: Updating/Upgrading dependencies](https://github.com/solomonjames/solace-candidate-assignment/pull/6)
 7. [[ui]: Breaking things out, and switching to Chakra UI](https://github.com/solomonjames/solace-candidate-assignment/pull/7)
 8. [[ui]: Adding pagination and real, db, filtering](https://github.com/solomonjames/solace-candidate-assignment/pull/8)
+9. [[linting]: Forcing use of single quotes](https://github.com/solomonjames/solace-candidate-assignment/pull/9)

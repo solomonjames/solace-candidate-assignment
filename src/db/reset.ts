@@ -1,5 +1,5 @@
 import db from '@/db';
-import { reset } from "drizzle-seed";
+import { reset } from 'drizzle-seed';
 import { advocatesTable } from '@/db/schema';
 
 async function main() {

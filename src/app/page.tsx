@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { ChangeEvent, useEffect, useState, useCallback } from "react";
-import { Container, Flex, Stack } from "@chakra-ui/react";
+import { ChangeEvent, useEffect, useState, useCallback } from 'react';
+import { Container, Flex, Stack } from '@chakra-ui/react';
 import { type AdvocateEntity } from '@/db/schema';
 import { advocateApi } from '@/lib/api';
 import Header from '@/components/home/Header';
@@ -16,8 +16,8 @@ export default function Home() {
   const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(['10']);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [lastSearchTerm, setLastSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
+  const [lastSearchTerm, setLastSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchAdvocates = useCallback(async (page: number, search: string) => {
@@ -38,7 +38,7 @@ export default function Home() {
   }, [pageSize]);
 
   useEffect(() => {
-    void fetchAdvocates(1, "");
+    void fetchAdvocates(1, '');
   }, [fetchAdvocates]);
 
   const searchHandler = () => {
@@ -53,10 +53,10 @@ export default function Home() {
   };
 
   const clearHandler = () => {
-    setSearchTerm("");
-    setLastSearchTerm("");
+    setSearchTerm('');
+    setLastSearchTerm('');
     setCurrentPage(1);
-    void fetchAdvocates(1, "");
+    void fetchAdvocates(1, '');
   };
 
   const handlePageChange = (page: number) => {
@@ -75,7 +75,7 @@ export default function Home() {
       />
       <Stack width="full" gap="5">
         <AdvocatesTable advocates={advocates} isLoading={isLoading} />
-        <Flex gap="4" direction={["column", "column", "row"]}>
+        <Flex gap="4" direction={['column', 'column', 'row']}>
           <PageSizeSelector
             pageSize={pageSize}
             setPageSize={setPageSize}

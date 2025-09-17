@@ -1,5 +1,5 @@
-import { drizzle, PostgresJsDatabase } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
+import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 
 let databaseInstance: PostgresJsDatabase | null = null;
 
@@ -9,9 +9,9 @@ const setup = (): PostgresJsDatabase => {
   }
 
   if (!process.env.DATABASE_URL) {
-    console.error("DATABASE_URL is not set");
+    console.error('DATABASE_URL is not set');
 
-    throw new Error("DATABASE_URL is not set");
+    throw new Error('DATABASE_URL is not set');
   }
 
   // for query purposes
