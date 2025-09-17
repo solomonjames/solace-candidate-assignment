@@ -8,6 +8,13 @@
       "when": 1757962668544,
       "tag": "0000_init",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1758127388392,
+      "tag": "0001_add_advocates_search_vector",
+      "breakpoints": true
     }
   ]
 }
