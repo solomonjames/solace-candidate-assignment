@@ -1,6 +1,6 @@
 import { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { AdvocateEntity, advocatesTable } from '@/db/schema';
-import { ilike, or, sql } from 'drizzle-orm';
+import { sql } from 'drizzle-orm';
 import { PaginatedResult } from '@/lib/repositories/types';
 
 export class AdvocateRepository {
@@ -16,14 +16,16 @@ export class AdvocateRepository {
 
     let whereClause;
     if (search) {
-      whereClause = or(
-        ilike(advocatesTable.firstName, `%${search}%`),
-        ilike(advocatesTable.lastName, `%${search}%`),
-        ilike(advocatesTable.city, `%${search}%`),
-        ilike(advocatesTable.degree, `%${search}%`),
-        sql`${advocatesTable.specialties}::text ILIKE ${`%${search}%`}`,
-        sql`${advocatesTable.yearsOfExperience}::text ILIKE ${`%${search}%`}`
-      );
+      whereClause = sql`
+        to_tsvector('english', 
+          ${advocatesTable.firstName} || ' ' ||
+          ${advocatesTable.lastName} || ' ' ||
+          ${advocatesTable.city} || ' ' ||
+          ${advocatesTable.degree} || ' ' ||
+          COALESCE(${advocatesTable.specialties}::text, '') || ' ' ||
+          COALESCE(${advocatesTable.yearsOfExperience}::text, '')
+        ) @@ plainto_tsquery('english', ${search})
+      `;
     }
 
     const [data, [{ count }]] = await Promise.all([

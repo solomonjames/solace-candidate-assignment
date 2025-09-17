@@ -1,6 +1,6 @@
 {
-  "id": "095c0e51-0dce-495d-9080-6e596d7835a9",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "5a5a22e9-ec98-4988-9e8d-9f1dd478ccc0",
+  "prevId": "095c0e51-0dce-495d-9080-6e596d7835a9",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -65,15 +65,37 @@
           "default": "now()"
         }
       },
-      "indexes": {},
+      "indexes": {
+        "idx_advocates_computed_fts": {
+          "name": "idx_advocates_computed_fts",
+          "columns": [
+            {
+              "expression": "\n          to_tsvector('english', \n            \"first_name\" || ' ' || \n            \"last_name\" || ' ' || \n            \"city\" || ' ' || \n            \"degree\" || ' ' ||\n            COALESCE(\"specialties\"::text, '') || ' ' ||\n            COALESCE(\"years_of_experience\"::text, '')\n          )\n        ",
+              "asc": true,
+              "isExpression": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "gin",
+          "with": {}
+        }
+      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
     }
   },
   "enums": {},
   "schemas": {},
   "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
   "_meta": {
     "columns": {},
     "schemas": {},
