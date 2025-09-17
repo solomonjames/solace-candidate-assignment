@@ -1,5 +1,8 @@
 # Solace Candidate Assignment
 
+[solace-screen-recording.webm](https://github.com/user-attachments/assets/c57cd6a5-4b6b-4bb9-957b-dfc3b132f5ed)
+
+
 ## Tech Stack
 
 - **Frontend**: Next.js 15 with React 19
