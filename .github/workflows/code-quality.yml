@@ -1,11 +1,3 @@
-setup_steps: &setup_steps
-  - uses: actions/checkout@v5
-  - uses: actions/setup-node@v5
-    with:
-      node-version-file: '.nvmrc'
-      cache: 'npm'
-  - run: npm ci
-
 name: Code Quality
 
 on:
@@ -16,11 +8,11 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - *setup_steps
+      - uses: ./.github/actions/setup
       - run: npm run lint
 
   build:
     runs-on: ubuntu-latest
     steps:
-      - *setup_steps
+      - uses: ./.github/actions/setup
       - run: npm run build
