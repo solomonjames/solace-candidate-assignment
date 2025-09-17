@@ -16,3 +16,4 @@ Linking the PRs in the order they were created and merged here for easy finding:
 9. [[linting]: Forcing use of single quotes](https://github.com/solomonjames/solace-candidate-assignment/pull/9)
 10. [[actions]: Adding in github actions for PRs](https://github.com/solomonjames/solace-candidate-assignment/pull/10)
 11. [[actions]: Fixing issues and change to tsc check](https://github.com/solomonjames/solace-candidate-assignment/pull/11)
+12. [[fts]: Utilizing an optimized index for fts](https://github.com/solomonjames/solace-candidate-assignment/pull/12)
